@@ -191,7 +191,7 @@ class Manager
 		
 		$response = new Response();
 		$response->setJobNumber($num);
-		error_log($queueUrl);
+		
 		if (strpos($queueUrl, 'local://') === 0) {
 			$response->setQueueUrl(str_replace('local://', 'http://', $queueUrl));
 		} else {

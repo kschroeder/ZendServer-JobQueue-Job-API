@@ -47,7 +47,7 @@ class Manager
 	{
 		 
 		if (!$this->codec instanceof CodecInterface) {
-			$this->codec = self::$defaultCodec instanceof CodecInterface?:new Codec();
+			$this->codec = self::$defaultCodec instanceof CodecInterface?self::$defaultCodec:new Codec();
 		}
 		return $this->codec;
 	}

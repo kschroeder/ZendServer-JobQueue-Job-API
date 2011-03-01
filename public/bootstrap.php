@@ -1,6 +1,7 @@
 <?php
-zend_monitor_set_aggregation_hint(time());
+
 use com\zend\jobqueue\Manager;
+use com\zend\jobqueue\codec\EncryptedCodec;
 require_once 'Zend/Loader/Autoloader.php';
 Zend_Loader_Autoloader::getInstance()->setFallbackAutoloader(true);
 

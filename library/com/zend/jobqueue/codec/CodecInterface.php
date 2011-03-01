@@ -1,6 +1,6 @@
 <?php
 
-namespace com\zend\jobqueue;
+namespace com\zend\jobqueue\codec;
 
 interface CodecInterface
 {

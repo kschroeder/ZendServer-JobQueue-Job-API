@@ -2,6 +2,10 @@
 
 namespace com\zend\jobqueue;
 
+use com\zend\jobqueue\codec\Codec;
+
+use com\zend\jobqueue\codec\CodecInterface;
+
 use com\zend\jobqueue\request\RequestInterface;
 
 use com\zend\jobqueue\request\Status;
@@ -17,14 +21,14 @@ class Manager
 	
 	/**
 	 * 
-	 * @var com\zend\jobqueue\CodecInterface
+	 * @var com\zend\jobqueue\codec\CodecInterface
 	 */
 	
 	private static $defaultCodec;
 
 	/**
 	 * 
-	 * @var com\zend\jobqueue\Codec
+	 * @var com\zend\jobqueue\codec\Codec
 	 */
 	private $codec;
 	
@@ -36,7 +40,7 @@ class Manager
 	
 	/**
 	 * 
-	 * @return com\zend\jobqueue\CodecInterface
+	 * @return com\zend\jobqueue\codec\CodecInterface
 	 */
 	
 	public function getCodec()

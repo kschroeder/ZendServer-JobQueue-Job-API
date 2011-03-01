@@ -57,7 +57,7 @@ class Manager
 		$this->codec = $codec;
 	}
 	
-	public static function setDefaultCodec(com\zend\jobqueue\CodecInterface $codec)
+	public static function setDefaultCodec(CodecInterface $codec)
 	{
 		self::$defaultCodec = $codec;
 	}

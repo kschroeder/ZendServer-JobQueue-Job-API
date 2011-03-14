@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="true"
+         colors="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="true"
+         stopOnFailure="true"
+         syntaxCheck="false"
+         testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader"
+         bootstrap="bootstrap.php"
+         >
+         <php>
+            <includePath>../library</includePath>
+         </php>
+</phpunit>

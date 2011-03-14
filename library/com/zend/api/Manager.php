@@ -26,6 +26,7 @@ class Manager
 	private $postCallback;
 	
 	private $response;
+	
 
     /**
      * @return \Zend_Http_Response $response
@@ -106,6 +107,7 @@ class Manager
 		if ($method->getRequestMethod() == 'POST') {
 			$client->setMethod('POST');
 		}
+		$method->preprocessClient($client);
 		$this->response = $client->request();
 		$method->postCallback();
 		
@@ -175,10 +177,11 @@ class Manager
 		);
 		
 		$body = $method->getBodyPayload();
-		$client->setRawData(
-			$body
-		);
+		
 		if ($body) {
+			$client->setRawData(
+				$body
+			);
 			$client->setMethod('POST');
 			$client->setHeaders('Content-type', 'application/x-www-form-urlencoded');
 		}

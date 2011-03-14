@@ -80,7 +80,7 @@ class Service
 
 	public function restartPHP($srv = null)
 	{
-		$restartPHP = new RestartPHP($srv);
+		$restartPHP = new RestartPhp($srv);
 		return $this->getManager()->call($restartPHP)->getResult();
 	}
 

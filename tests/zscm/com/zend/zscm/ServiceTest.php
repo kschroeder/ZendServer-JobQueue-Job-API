@@ -91,7 +91,7 @@ class ServiceTest extends PHPUnit_Framework_TestCase
     	$ret = $this->Service->restartPHP();
         $this->assertType('array', $ret);
         $this->assertType('com\zend\api\response\ServerInfo', $ret[0]);
-        $this->assertEquals($ret->getStatus(), ServerInfo::STATUS_PENDING_RESTART);
+        $this->assertTrue($ret->getStatus() == ServerInfo::STATUS_PENDING_RESTART || $ret->getStatus() == ServerInfo::STATUS_RESTARTING);
     }
 
     public function testConfigurationExport ()

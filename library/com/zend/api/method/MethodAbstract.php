@@ -19,6 +19,7 @@ abstract class MethodAbstract
 	public function getQueryStringPayload() {}
 	public function getBodyPayload() {}
 	public function postCallback() {}
+	public function preprocessClient(\Zend_Http_Client $client) {}
 	
 	public abstract function processResponse(\Zend_Http_Response $response);
 	

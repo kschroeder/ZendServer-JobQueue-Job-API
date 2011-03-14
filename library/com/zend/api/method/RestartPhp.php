@@ -4,11 +4,11 @@ namespace com\zend\api\method;
 
 use com\zend\api\response\ServerInfo;
 
-class RestartPHP extends MethodAbstract
+class RestartPhp extends MethodAbstract
 {
 private $servers = array();
 	
-	public function __construct($server)
+	public function __construct($server = null)
 	{
 		if (is_array($server)) {
 			$this->servers = $server;

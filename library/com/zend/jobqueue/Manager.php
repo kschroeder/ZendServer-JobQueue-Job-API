@@ -37,6 +37,13 @@ class Manager
 		self::$defaultUrl = $url;
 	}
 	
+	public function __construct()
+	{
+		if (self::$defaultUrl === null) {
+			self::$defaultUrl = $_SERVER['HTTP_HOST'];
+		}
+	}
+	
 	
 	/**
 	 * 

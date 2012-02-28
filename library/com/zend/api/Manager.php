@@ -189,7 +189,7 @@ class Manager
 		$date = gmdate('D, d M Y H:i:s e');
 		$date = str_replace('UTC', 'GMT', $date);
 		$client->setHeaders('Date', $date);
-		$client->setHeaders('Accept', 'application/vnd.zend.serverapi+xml;version=1.0');
+		$client->setHeaders('Accept', 'application/vnd.zend.serverapi+xml;version=1.2');
 		
 		if (!$this->apiKey instanceof ApiKey) {
 			throw new ManagerException('API key has not been specified');

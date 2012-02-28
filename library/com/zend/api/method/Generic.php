@@ -6,10 +6,26 @@ class Generic extends MethodAbstract
 {
 	protected $payload;
 	protected $requestMethod = 'GET';
+	protected $queryString;
+		
+	public function setApiName($name)
+	{
+		$this->apiName = $name;
+	}
 	
 	public function setRequestMethod($method)
 	{
 		$this->requestMethod = $method;
+	}
+	
+	public function getQueryStringPayload()
+	{
+		return $this->queryString;
+	}
+	
+	public function setQueryStringPayload($urlEncoded)
+	{
+		$this->queryString = $urlEncoded;
 	}
 	
 	public function getRequestMethod()
@@ -24,15 +40,17 @@ class Generic extends MethodAbstract
 	
 	public function getBodyPayload()
 	{
-		if (!$this->payload) {
-			throw new MethodException('Payload not specified');
-		}
 		return $this->payload;
 	}
 	
 	public function processResponse(\Zend_Http_Response $response)
 	{
-		$this->result = new com\zend\api\response\Generic();
-		$this->result->setResponse($response->getBody());
+		$this->result = new \com\zend\api\response\Generic();
+		$response = $response->getBody();
+		if (($xml = simplexml_load_string($response)) instanceof \SimpleXMLElement) {
+			$this->result->setResponse($xml->responseData->asXml());
+		} else {
+			$this->result->setResponse($response);
+		}
 	}
 }

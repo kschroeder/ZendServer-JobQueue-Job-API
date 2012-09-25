@@ -106,7 +106,7 @@ class Manager
 	public function sendJobQueueRequest(JobAbstract $job)
 	{
 		$url = $job->getJobQueueUrl()?:self::$defaultUrl;
-		if (strpos($url, 'local://') === 0) {
+		if (strpos($url, 'local://') === 0 || $job->getJobQueueBinding()) {
 			return $this->createJob($job, $url);
 		}
 		$req = new Queue($job);
@@ -182,7 +182,11 @@ class Manager
 	
 	public function createJob(JobAbstract $obj, $queueUrl)
 	{
-		$q = new \ZendJobQueue();
+		if ($obj->getJobQueueBinding()){
+			$q = new \ZendJobQueue($obj->getJobQueueBinding());
+		} else {
+			$q = new \ZendJobQueue();
+		}
 		$qOptions = array(
 			'name' => $obj->getJobName()?:get_class($obj)
 		);

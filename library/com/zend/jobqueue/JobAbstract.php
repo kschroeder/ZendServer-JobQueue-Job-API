@@ -57,6 +57,15 @@ abstract class JobAbstract
 		return $this->url;
 	}
 	
+	public final function getJobQueueBinding()
+	{
+		return $this->queueBinding;
+	}
+	
+	public final function setJobQueueBinding($queueBinding)
+	{
+		$this->queueBinding = $queueBinding;
+	}
 	
 	public function execute()
 	{

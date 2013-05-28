@@ -171,7 +171,7 @@ class Manager
 			} catch (\Exception $e) {
 	        	zend_monitor_set_aggregation_hint(get_class($obj) . ': ' . $e->getMessage());
 	            zend_monitor_custom_event('Failed Job', $e->getMessage());
-	            \ZendJobQueue::setCurrentJobStatus(\ZendJobQueue::OK);
+	            \ZendJobQueue::setCurrentJobStatus(\ZendJobQueue::FAILED);
 	            return $e;
 	        }
 		}
